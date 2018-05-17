@@ -34,4 +34,15 @@ public class LinkedList {
 		}
 		temp.next = newNode;
 	}
+
+	//删除结点，需要考虑容错和边界值
+	void deletaNode(int index) {
+		if(index < 1 || index > length()) {
+			System.out.println("index error!");
+		}
+		int i = 1;
+		Node curNode = head;
+		Node nextNode = head.next;
+		
+	}
 }
