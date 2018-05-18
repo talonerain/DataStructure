@@ -45,7 +45,8 @@ public class LinkedList {
 			return;
 		}
 		int i = 2;
-		//因为要删除当前结点，所以必须用preNode，而不使用nextNode，所以遍历是从第二个结点开始，这样要对头结点进行特殊处理
+		//因为要删除当前结点，所以必须用preNode，而不使用nextNode，
+		//所以遍历是从第二个结点开始，这样要对头结点进行特殊处理
 		Node preNode = head;
 		Node curNode = preNode.next;
 		while(curNode != null) {
