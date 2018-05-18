@@ -59,4 +59,21 @@ public class LinkedList {
 			i++;
 		}
 	}
+
+	//删除重复元素，使用两层遍历，内层遍历从外层遍历的当前结点
+	//下一个结点开始，即q.next
+	void deleteDuplication() {
+		Node p = head;
+		while(p != null) {
+			Node q = p;
+			while(q.next != null) {
+				if(p.data == q.next.data) {
+					q.next = q.next.next;
+				} else {
+					q = q.next;
+				}
+			}
+			p = p.next;
+		}
+	}
 }
