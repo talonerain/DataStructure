@@ -35,14 +35,27 @@ public class LinkedList {
 		temp.next = newNode;
 	}
 
-	//删除结点，需要考虑容错和边界值
+	//删除结点，需要考虑容错
 	void deletaNode(int index) {
 		if(index < 1 || index > length()) {
 			System.out.println("index error!");
 		}
-		int i = 1;
-		Node curNode = head;
-		Node nextNode = head.next;
-		
+		if(index == 1) {
+			head = head.next;
+			return;
+		}
+		int i = 2;
+		//因为要删除当前结点，所以必须用preNode，而不使用nextNode，所以遍历是从第二个结点开始，这样要对头结点进行特殊处理
+		Node preNode = head;
+		Node curNode = preNode.next;
+		while(curNode != null) {
+			if(i = index) {
+				preNode.next = curNode.next;
+				return;
+			}
+			preNode = curNode;
+			curNode = curNode.next;
+			i++;
+		}
 	}
 }
