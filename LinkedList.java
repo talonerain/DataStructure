@@ -45,8 +45,8 @@ public class LinkedList {
 			return;
 		}
 		int i = 2;
-		//因为要删除当前结点，所以必须用preNode，而不使用nextNode，
-		//所以遍历是从第二个结点开始，这样要对头结点进行特殊处理
+		/*因为要删除当前结点，所以必须用preNode，而不使用nextNode，
+		所以遍历是从第二个结点开始，这样要对头结点进行特殊处理*/
 		Node preNode = head;
 		Node curNode = preNode.next;
 		while(curNode != null) {
@@ -60,8 +60,8 @@ public class LinkedList {
 		}
 	}
 
-	//删除重复元素，使用两层遍历，内层遍历从外层遍历的当前结点
-	//下一个结点开始，即q.next
+	/*删除重复元素，使用两层遍历，内层遍历从外层遍历的当前结点
+	下一个结点开始，即q.next*/
 	void deleteDuplication() {
 		Node p = head;
 		while(p != null) {
@@ -76,4 +76,20 @@ public class LinkedList {
 			p = p.next;
 		}
 	}
+
+	/*链表反转（逆置），思路是从头到尾遍历，依次改变next结点,
+	需要一个临时结点保存下一个结点*/
+	void reverse() {
+		Node preNode = head;
+		curNode = head.next;
+		Node tmpNode;
+		while(curNode != null) {
+			tmpNode = curNode.next;
+			curNode.next = preNode;	//使后一个指向前一个
+			//继续向后遍历
+			preNode = curNode;
+			curNode = tmpNode;
+		}
+	}
+
 }
