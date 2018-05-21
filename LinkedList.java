@@ -92,4 +92,23 @@ public class LinkedList {
 		}
 	}
 
+	//判断是否回文结构
+	void boolean isHuiWen() {
+		if(head == null) {
+			return false;
+		}
+		Stack<Node> stack = new Stack<>();
+		Node curNode = head;
+		while(curNode != null) {
+			stack.push(curNode);
+			curNode = curNode.next;
+		}
+		while(head.next != null) {
+			if(head.data != stack.pop().data) {
+				return false;
+			}
+			head = head.next;
+		}
+		return true;
+	}
 }
