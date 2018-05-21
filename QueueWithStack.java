@@ -1,3 +1,5 @@
+package DataStructure;
+
 /*通过两个栈实现队列，思路是利用栈后进先出的机制，
 先后对两个栈入栈出栈，即可做到先进先出*/
 public class QueueWithStack {
