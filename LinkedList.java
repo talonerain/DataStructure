@@ -12,7 +12,7 @@ public class LinkedList {
 	Node head = null;
 
 	//链表长度，遍历结点计数
-	int length() {
+	public int length() {
 		int length = 0;
 		Node temp = head;
 		while(temp != null) {
@@ -23,10 +23,11 @@ public class LinkedList {
 	}
 
 	//新增结点，遍历找到尾结点，需要考虑链表为空情况
-	void addNode(int data) {
+	public void addNode(int data) {
 		Node newNode = new Node(data);
 		if(head == null) {
 			head = newNode;
+			return;
 		}
 		Node temp = head;
 		while(temp != null) {
@@ -36,13 +37,14 @@ public class LinkedList {
 	}
 
 	//删除结点，需要考虑容错
-	void deletaNode(int index) {
+	public boolean deleteNode(int index) {
 		if(index < 1 || index > length()) {
 			System.out.println("index error!");
+			return false;
 		}
 		if(index == 1) {
 			head = head.next;
-			return;
+			return true;
 		}
 		int i = 2;
 		/*因为要删除当前结点，所以必须用preNode，而不使用nextNode，
@@ -52,17 +54,18 @@ public class LinkedList {
 		while(curNode != null) {
 			if(i = index) {
 				preNode.next = curNode.next;
-				return;
+				return true;
 			}
 			preNode = curNode;
 			curNode = curNode.next;
 			i++;
 		}
+		return true;
 	}
 
 	/*删除重复元素，使用两层遍历，内层遍历从外层遍历的当前结点
 	下一个结点开始，即q.next*/
-	void deleteDuplication() {
+	public void deleteDup() {
 		Node p = head;
 		while(p != null) {
 			Node q = p;
