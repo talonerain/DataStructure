@@ -17,7 +17,7 @@ public class Tree {
 		return leftDeep > rightDeep ? leftDeep + 1 : rightDeep + 1;
 	}
 
-	//前序遍历
+	//前序遍历(先根遍历、先序遍历、根左右)
 	void preOrder(TreeNode node) {
 		if(node == null) {
 			return;
@@ -27,7 +27,7 @@ public class Tree {
 		preOrder(node.right);
 	}
 
-	//后序遍历
+	//中序遍历(中根遍历、左根右)
 	void inOrder(TreeNode node) {
 		if(node == null) {
 			return;
@@ -46,9 +46,9 @@ public class Tree {
 		if(node.left != null) {
 			leftNum = nodeNum(node.left);
 		}
-		int leftNum = 0;
+		int rightNum = 0;
 		if(node.right != null) {
-			right = nodeNum(node.right);
+			rightNum = nodeNum(node.right);
 		}
 		return leftNum + rightNum + 1;
 	}
